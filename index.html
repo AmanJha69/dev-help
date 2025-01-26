@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game & App Development Suggestions</title>
+  <link rel="stylesheet" href="./Styles.css">
+</head>
+<body>
+  <header>
+    <div class="logo">DevHelper</div>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#recommendations">Recommendations</a></li>
+        <li><a href="#trends">Trends</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <h1>Welcome to DevHelper</h1>
+    <p>Your guide to choosing the right game or app development project.</p>
+    <button onclick="scrollToSection('#recommendations')">Get Started</button>
+  </section>
+
+  <section id="recommendations">
+    <h2>Find Your Perfect Project</h2>
+    <div class="tabs">
+      <button class="tab-link active" onclick="openTab(event, 'game-dev')">Game Development</button>
+      <button class="tab-link" onclick="openTab(event, 'app-dev')">App Development</button>
+    </div>
+
+    <div id="game-dev" class="tab-content active">
+      <form id="game-dev-form">
+        <input type="text" name="skills" placeholder="Enter your skills (e.g., Unity, C++)">
+        <input type="text" name="interests" placeholder="Enter your interests (e.g., RPG games, action)">
+        <button type="submit">Get Game Recommendations</button>
+      </form>
+      <div id="game-results">
+        <canvas id="game-genre-chart" width="400" height="200" style="display: none;"></canvas>
+        <canvas id="game-platform-chart" width="400" height="200" style="display: none;"></canvas>
+      </div>
+    </div>
+
+    <div id="app-dev" class="tab-content">
+      <form id="app-dev-form">
+        <input type="text" name="skills" placeholder="Enter your skills (e.g., Flutter, Python)">
+        <input type="text" name="interests" placeholder="Enter your interests (e.g., productivity apps, health apps)">
+        <button type="submit">Get App Recommendations</button>
+      </form>
+      <div id="app-results">
+        <canvas id="app-genre-chart" width="400" height="200" style="display: none;"></canvas>
+        <canvas id="app-platform-chart" width="400" height="200" style="display: none;"></canvas>
+      </div>
+    </div>
+  </section>
+
+  <section id="trends">
+    <h2>Trending Now</h2>
+    <canvas id="trend-chart"></canvas>
+  </section>
+
+  <footer>
+    <p>© 2025 DevHelper | <a href="#contact">Contact Us</a></p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    function openTab(event, tabName) {
+      const tabLinks = document.querySelectorAll('.tab-link');
+      const tabContents = document.querySelectorAll('.tab-content');
+
+      tabLinks.forEach(link => link.classList.remove('active'));
+      tabContents.forEach(content => content.classList.remove('active'));
+
+      event.currentTarget.classList.add('active');
+      document.getElementById(tabName).classList.add('active');
+    }
+
+    function renderChart(chartId, type, data) {
+      const canvas = document.getElementById(chartId);
+      canvas.style.display = 'block'; // Show the chart
+      new Chart(canvas, {
+        type: type,
+        data: data
+      });
+    }
+
+    document.getElementById('game-dev-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const gameGenreData = {
+        labels: ["RPG", "Shooter", "Adventure", "Sports"],
+        datasets: [{
+          label: "Game Genres",
+          data: [25, 40, 20, 15],
+          backgroundColor: ["#ff6384", "#36a2eb", "#ffcd56", "#4bc0c0"]
+        }]
+      };
+
+      const gamePlatformData = {
+        labels: ["PC", "Console", "Mobile"],
+        datasets: [{
+          label: "Game Platforms",
+          data: [50, 30, 20],
+          backgroundColor: ["#ff6384", "#36a2eb", "#ffcd56"]
+        }]
+      };
+
+      renderChart('game-genre-chart', 'bar', gameGenreData);
+      renderChart('game-platform-chart', 'pie', gamePlatformData);
+    });
+
+    document.getElementById('app-dev-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const appGenreData = {
+        labels: ["Productivity", "Social Media", "Health", "Gaming"],
+        datasets: [{
+          label: "App Genres",
+          data: [30, 25, 25, 20],
+          backgroundColor: ["#4bc0c0", "#36a2eb", "#ffcd56", "#ff6384"]
+        }]
+      };
+
+      const appPlatformData = {
+        labels: ["iOS", "Android", "Web"],
+        datasets: [{
+          label: "App Platforms",
+          data: [40, 40, 20],
+          backgroundColor: ["#ff6384", "#4bc0c0", "#36a2eb"]
+        }]
+      };
+
+      renderChart('app-genre-chart', 'bar', appGenreData);
+      renderChart('app-platform-chart', 'pie', appPlatformData);
+    });
+  </script>
+</body>
+</html>

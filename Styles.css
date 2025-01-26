@@ -1,0 +1,253 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+  background: #1e1e2f;
+  background-image: url('https://www.transparenttextures.com/patterns/hexellence.png');
+  color: #cdd1e0;
+  overflow-x: hidden;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 5%;
+  background: linear-gradient(135deg, #282a36, #3d405b);
+  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+header .logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #cdd1e0;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+}
+
+nav ul li {
+  margin-left: 20px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #cdd1e0;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+nav ul li a:hover {
+  color: #f39c12;
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 6rem 2rem;
+  background: linear-gradient(135deg, #20222f, #3d3f58);
+  color: #fff;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.hero button {
+  background: #f39c12;
+  color: #fff;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.hero button:hover {
+  background: #e67e22;
+  transform: translateY(-3px);
+}
+
+/* Recommendations Section */
+#recommendations {
+  padding: 4rem 5%;
+  text-align: center;
+  background: #282a36;
+  border-top: 5px solid #f39c12;
+  color: #cdd1e0;
+}
+
+#recommendations h2 {
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.tab-link {
+  padding: 0.8rem 1.5rem;
+  background: #44475a;
+  color: #cdd1e0;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.3s;
+}
+
+.tab-link.active {
+  background: #f39c12;
+  color: #fff;
+}
+
+.tab-link:hover {
+  background: #3d405b;
+}
+
+#recommendations form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 500px;
+  margin: 0 auto;
+  background: #44475a;
+  padding: 2rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+  color: #cdd1e0;
+}
+
+#recommendations form input,
+#recommendations form button {
+  padding: 1rem;
+  border-radius: 10px;
+  border: 1px solid #555;
+  font-size: 1rem;
+}
+
+#recommendations form button {
+  background: #f39c12;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#recommendations form button:hover {
+  background: #e67e22;
+}
+
+/* Canvas Resizing and Animation */
+canvas {
+  display: block;
+  max-width: 400px;
+  margin: 2rem auto;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  background: #1e1e2f;
+  padding: 1rem;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Trends Section */
+#trends {
+  padding: 4rem 5%;
+  text-align: center;
+  background: #282a36;
+  border-top: 5px solid #f39c12;
+  color: #cdd1e0;
+}
+
+#trends h2 {
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+}
+
+.trend-card {
+  display: inline-block;
+  width: 250px;
+  margin: 1rem;
+  background: #44475a;
+  padding: 1.5rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  text-align: left;
+  animation: slideUp 1.5s ease-in-out;
+  color: #cdd1e0;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.trend-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.trend-card p {
+  font-size: 0.9rem;
+  color: #a9b1d6;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 2rem;
+  background: #20222f;
+  color: #cdd1e0;
+}
+
+footer a {
+  color: #f39c12;
+  text-decoration: none;
+  margin: 0 0.5rem;
+  transition: color 0.3s;
+}
+
+footer a:hover {
+  color: #e67e22;
+}
